@@ -1,0 +1,11 @@
+[
+  {
+    "outputFileName": "wwwroot/Content/site.min.css",
+    "inputFiles": [
+      "wwwroot/Content/custom.css",
+      "wwwroot/Content/Site.css"
+      //"wwwroot/Content/custom2.scss"
+    ]
+  }
+  
+]
