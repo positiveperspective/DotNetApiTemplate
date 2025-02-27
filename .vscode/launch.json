@@ -1,0 +1,52 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Docker Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickRemoteProcess}",
+            "pipeTransport": {
+              "pipeCwd": "${workspaceRoot}",
+              "pipeProgram": "docker",
+              "pipeArgs": [ "exec", "-i", "jolly_liskov" ],
+              "debuggerPath": "/vsdbg/vsdbg",
+              "quoteArgs": false
+            },
+            "sourceFileMap": {
+              "path/in/container": "${workspaceRoot}/DotNetAPI.API2/DotNetAPI2"
+            }
+          },
+        // {
+        //     "name": ".NET Core Launch (Docker)",
+        //     "type": "coreclr",
+        //     "request": "launch",
+        //     "preLaunchTask": "docker-build",
+        //     "program": "${workspaceFolder}/DotNetAPI.API2/DotNetAPI2/bin/Debug/net8.0/DotNetAPI2.dll",
+        //     "args": [],
+        //     "cwd": "${workspaceFolder}",
+        //     "stopAtEntry": false,
+        //     "pipeTransport": {
+        //         "pipeCwd": "${workspaceFolder}",
+        //         "pipeProgram": "docker",
+        //         "pipeArgs": [
+        //             "exec",
+        //             "-i",
+        //             "romantic_torvalds",
+        //             "dotnet",
+        //             "exec",
+        //             "--runtimeconfig",
+        //             "/app/DotNetAPI2.runtimeconfig.json",
+        //             "/app/DotNetAPI2.dll",
+        //         ],
+        //         "debuggerPath": "/vsdbg/vsdbg"
+        //     },
+        //     "env": {
+        //         "ASPNETCORE_ENVIRONMENT": "Development"
+        //     },
+        //     "sourceFileMap": {
+        //         "/app": "${workspaceFolder}"
+        //     }
+        // }
+    ]
+}

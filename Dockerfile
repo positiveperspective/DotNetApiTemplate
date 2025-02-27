@@ -39,6 +39,12 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 #COPY --from=build ./ScarabeoStudioCore/wwwroot/UserFiles /app/wwwroot/UserFiles
+
+RUN apt-get update \
+    && apt-get install unzip \
+    && curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l /vsdbg
+
 EXPOSE 5232
+ENV ASPNETCORE_URLS=http://*:5232
 ENV ASPNETCORE_ENVIRONMENT=Development
 ENTRYPOINT ["dotnet", "DotNetAPI2.dll", "--environment=Development"]
